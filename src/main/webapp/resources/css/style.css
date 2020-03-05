@@ -1,0 +1,47 @@
+.solid-hr{
+    margin: -45px auto 10px; 
+	padding: 0;
+	height: 50px;
+	border: none;
+	border-bottom: 1px solid black;
+	box-shadow: 0 20px 20px -20px gray;
+    width: 95%;
+    margin-bottom: 40px;
+
+}
+header{
+    background: rgb(167, 224, 243);
+    min-height: 85px;
+    color: black;
+    text-align: center;
+    padding-top: 15px;
+   
+}
+.navigation-buttons{
+    height: 30px;
+    padding: 0px 10px;
+}
+
+main{
+    border-top: solid slateblue;
+    padding: 25px;
+    min-height: calc(100vh - 85px);
+    background:  rgba(173,227,240,0.3);
+}
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80vw;
+    margin: 0 10vw;
+    
+}
+.flex-item {
+    width: 150px;
+}
+
+main-content{
+    padding: 20px;
+}

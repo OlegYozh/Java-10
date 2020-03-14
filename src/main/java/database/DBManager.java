@@ -40,6 +40,17 @@ public class DBManager {
         return disciplines;
     }
 
+    public static void insertNewDiscipline(String newDiscipline) {
+
+        try {
+            Statement stm = con.createStatement();
+            stm.execute("INSERT INTO `discipline` (`discipline`) VALUES ('"+newDiscipline+"');");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static List<Student> getAllStudents() {
         ArrayList<Student> students = new ArrayList<Student>();
         try {

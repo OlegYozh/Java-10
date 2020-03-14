@@ -30,9 +30,9 @@
     </div>
     <hr class="solid-hr">
 </header>
-<%@include file="WEB-INF/jsp/home.jsp"%>
 
 
+<jsp:include page="${currentPage}" flush="true"/>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

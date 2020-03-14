@@ -1,43 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СУСиУ - Список студентов</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./resources/css/style.css">
-</head>
-
-<body>
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2">
-                <a href="index.jsp" class="btn btn-outline-secondary" role="button" aria-pressed="true"><img
-                        src="./resources/images/home.png" alt="home" class="navigation-buttons"></a>
-            </div>
-            <div class="col-md-9">
-                <h2>Система управления студентами и их успеваемостью</h2>
-            </div>
-            <div class="col-md-1">
-                <a href="https://yandex.ru" class="btn btn-outline-secondary" role="button" aria-pressed="true"><img
-                        src="./resources/images/logout.png" alt="logout" class="navigation-buttons"></a>
-            </div>
-        </div>
-    </div>
-    <hr class="solid-hr">
-</header>
 <main>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a id="home" href="/"> <button type="button" class="btn btn-secondary"><img
+                src="/resources/images/home.png" alt="home" class="navigation-buttons"></button></a>
+        <button type="button" class="btn btn-secondary">Middle</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+    </div>
     <admin-panel>
         <div class="flex-container">
             <div class="flex-item item-2">
-                <a href="./discipline-creating.jsp" class="btn btn-outline-info" role="button"
+                <a href="./disciplinecreating" class="btn btn-outline-info" role="button"
                    aria-pressed="true">Создать дисциплину</a>
             </div>
             <div class="flex-item item-3">
@@ -67,7 +41,7 @@
                             <tr>
                                 <th>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                        <input class="form-check-input" type="checkbox" value="$d.id" id="defaultCheck2">
                                     </div>
                                 </th>
                                 <th>
@@ -85,6 +59,3 @@
         </div>
     </main-content>
 </main>
-</body>
-
-</html>

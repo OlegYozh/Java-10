@@ -3,24 +3,24 @@ package database;
 import entity.Discipline;
 import entity.Student;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DBManager {
     private static Connection con;
+    private static PreparedStatement modifyDiscipline;
 
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/student_crm?useUnicode=true&serverTimezone=UTC", "root", "root");
+            modifyDiscipline = con.prepareStatement("UPDATE `discipline` SET `discipline` = ? WHERE (`id` = ?);");
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public static List<Discipline> getAllActiveDisciplines() {
@@ -44,12 +44,41 @@ public class DBManager {
 
         try {
             Statement stm = con.createStatement();
-            stm.execute("INSERT INTO `discipline` (`discipline`) VALUES ('"+newDiscipline+"');");
+            stm.execute("INSERT INTO `discipline` (`discipline`) VALUES ('" + newDiscipline + "');");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    public static Discipline getDisciplineById(String id) {
+        Discipline discipline = new Discipline();
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery("select * from discipline where status = 1 AND id = " + id);
+
+            while (rs.next()) {
+                discipline.setId(rs.getInt("id"));
+                discipline.setDiscipline(rs.getString("discipline"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return discipline;
+    }
+
+    public static void modifyDiscipline(String discipline, String id) {
+        try {
+
+            modifyDiscipline.setString(1, discipline);
+            modifyDiscipline.setString(2, id);
+            modifyDiscipline.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public static List<Student> getAllStudents() {
         ArrayList<Student> students = new ArrayList<Student>();

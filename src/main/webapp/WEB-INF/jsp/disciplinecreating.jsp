@@ -7,8 +7,8 @@
         <div class="btn-group" role="group" aria-label="Basic example">
            <a id="home" href="/"> <button type="button" class="btn btn-secondary"><img
                    src="/resources/images/home.png" alt="home" class="navigation-buttons"></button></a>
-            <button type="button" class="btn btn-secondary">Middle</button>
-            <button type="button" class="btn btn-secondary">Right</button>
+            <a id="discipBack1" href="/disciplines"><button type="button" class="btn btn-secondary">Middle</button>
+                <button type="button" class="btn btn-secondary">Right</button></a>
         </div>
         <div class="container">
             <div class="row">

@@ -15,7 +15,7 @@
                    aria-pressed="true">Создать дисциплину</a>
             </div>
             <div class="flex-item item-3">
-                <a href="./discipline-modifying.jsp" class="btn btn-outline-info" role="button"
+                <a onclick="modifySelectDiscipline()" class="btn btn-outline-info" role="button"
                    aria-pressed="true">Изменить дисциплину</a>
             </div>
             <div class="flex-item item-4">
@@ -41,7 +41,7 @@
                             <tr>
                                 <th>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="$d.id" id="defaultCheck2">
+                                        <input class="form-check-input" type="checkbox" value="${d.id}" id="defaultCheck">
                                     </div>
                                 </th>
                                 <th>
@@ -59,3 +59,7 @@
         </div>
     </main-content>
 </main>
+
+<form id="formModifyingDiscipline" method="get" action="/disciplinemodify">
+    <input type="hidden" id="idModifyDisc" name="idModifyDisc" value="">
+</form>

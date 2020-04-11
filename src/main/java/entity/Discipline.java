@@ -6,14 +6,16 @@ public class Discipline {
     private int id;
     private String discipline;
     private int status;
+    private int flag;
 
     public Discipline() {
     }
 
-    public Discipline(int id, String discipline, int status) {
+    public Discipline(int id, String discipline, int status, int flag) {
         this.id = id;
         this.discipline = discipline;
         this.status = status;
+        this.flag = flag;
     }
 
     public int getId() {
@@ -40,6 +42,14 @@ public class Discipline {
         this.status = status;
     }
 
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,12 +57,13 @@ public class Discipline {
         Discipline that = (Discipline) o;
         return id == that.id &&
                 status == that.status &&
+                flag == that.flag &&
                 Objects.equals(discipline, that.discipline);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, discipline, status);
+        return Objects.hash(id, discipline, status, flag);
     }
 
     @Override
@@ -61,6 +72,7 @@ public class Discipline {
                 "id=" + id +
                 ", discipline='" + discipline + '\'' +
                 ", status=" + status +
+                ", flag=" + flag +
                 '}';
     }
 }

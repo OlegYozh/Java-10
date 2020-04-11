@@ -16,34 +16,36 @@
             <main-content>
                 <h3>Для создания студента заполните все поля и нажмите кнопку "Создать"</h3>
                 <div class="student-form">
-                    <form action="/createStudent" method="post">
+                    <form action="/modifyStudent" method="post">
+                        <input type="hidden" name="idModifyStud" value="${stud.id}">
                         <div class="form-group row">
-                            <label for="LastName" class="col-sm-3 col-form-label">Фамилия</label>
+                            <label for="FirstName" class="col-sm-3 col-form-label">Фамилия</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="LastName" placeholder="Иванов"
-                                       name="lastName">
+                                <input type="text" class="form-control" id="FirstName"
+                                       value="${stud.firstName}"
+                                       name="firstName">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="FirstName" class="col-sm-3 col-form-label">Имя</label>
+                            <label for="LastName" class="col-sm-3 col-form-label">Имя</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="FirstName" placeholder="Иван"
-                                       name="firstName">
+                                <input type="text" class="form-control" id="LastName"
+                                       value="${stud.lastName}"
+                                       name="lastName">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="Group" class="col-sm-3 col-form-label">Группа</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="Group" placeholder="ЭИ-302"
+                                <input type="text" class="form-control" id="Group" value="${stud.group}"
                                        name="group">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="datepicker" class="col-sm-4 col-form-label">Дата зачисления</label>
                             <div class="col-sm-8">
-                                <c:set var="now" value="<%= new java.util.Date() %>"/>
-                                <input type="text" class="form-control" id="datepicker"
-                                       value="<fmt:formatDate value="${now}" pattern="MM/dd/yyyy"/>"
+
+                                <input type="text" class="form-control" id="datepicker" value="${stud.date}"
                                        name="date">
                             </div>
                         </div>
@@ -52,6 +54,5 @@
                 </div>
             </main-content>
         </div>
-        <div class="col-md-2"></div>
     </div>
 </main>

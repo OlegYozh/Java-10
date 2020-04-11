@@ -10,29 +10,28 @@
     <title>СУСиУ - Главная</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./resources/css/style.css">
+    <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 
 <body>
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-9">
-                <h2>Система управления студентами и их успеваемостью</h2>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="page-header">
+                    <h1>Система управления студентами и их успеваемостью </h1>
+                </div>
             </div>
             <div class="col-md-1">
-                <a href="https://yandex.ru" class="btn btn-outline-secondary" role="button" aria-pressed="true"><img
+                <a id="logout" href="/logout" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="padding-top: 20px"><img
                         src="./resources/images/logout.png" alt="logout" class="navigation-buttons"></a>
             </div>
         </div>
     </div>
     <hr class="solid-hr">
 </header>
-<%@include file="WEB-INF/jsp/home.jsp"%>
-
-
+<%@include file="WEB-INF/jsp/home.jsp" %>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

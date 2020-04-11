@@ -17,7 +17,15 @@ public class StudentsListController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Student> students = DBManager.getAllStudents();
         req.setAttribute("studs", students);
-        req.getRequestDispatcher("./WEB-INF/jsp/studentslist.jsp").forward(req, resp);
+        req.setAttribute("currentPage", "/WEB-INF/jsp/studentslist.jsp");
+        req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idsDeleteStud = req.getParameter("idsDeleteStud");
+        DBManager.deleteStudent(idsDeleteStud);
+        resp.sendRedirect("/students");
     }
 }
 

@@ -15,7 +15,6 @@ public class DisciplineModifyingController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idDisc = req.getParameter("idModifyDisc");
-        System.out.println(idDisc);
         Discipline discipline = DBManager.getDisciplineById(idDisc);
         req.setAttribute("disc", discipline);
         req.setAttribute("currentPage", "/WEB-INF/jsp/disciplinemodifying.jsp");

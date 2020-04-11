@@ -1,5 +1,8 @@
 package entity;
 
+import database.DBManager;
+
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 public class Student {
@@ -7,15 +10,17 @@ public class Student {
     private String firstName;
     private String lastName;
     private String group;
+    private String date;
 
     public Student() {
     }
 
-    public Student(int id, String firstName, String lastName, String group) {
+    public Student(int id, String firstName, String lastName, String group, String date) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.group = group;
+        this.date = date;
     }
 
     public int getId() {
@@ -50,6 +55,25 @@ public class Student {
         this.group = group;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        SimpleDateFormat fromDB = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat toUser = new SimpleDateFormat("MM/dd/yyyy");
+
+        try {
+            toUser.format(fromDB.parse(date));
+            String reformattedStr = toUser.format(fromDB.parse(date));
+            this.date = reformattedStr;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,12 +82,13 @@ public class Student {
         return id == student.id &&
                 Objects.equals(firstName, student.firstName) &&
                 Objects.equals(lastName, student.lastName) &&
-                Objects.equals(group, student.group);
+                Objects.equals(group, student.group) &&
+                Objects.equals(date, student.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, group);
+        return Objects.hash(id, firstName, lastName, group, date);
     }
 
     @Override
@@ -73,6 +98,7 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", group='" + group + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
 }

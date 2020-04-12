@@ -19,11 +19,13 @@ public class StudentModifyingController extends HttpServlet {
         Student student = DBManager.getStudentById(idStud);
         req.setAttribute("stud", student);
         req.setAttribute("currentPage", "/WEB-INF/jsp/studentmodifying.jsp");
+        req.setAttribute("pageName", "Изменение студента");
         req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String idModifyStud = req.getParameter("idModifyStud");
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");

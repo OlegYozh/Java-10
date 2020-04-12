@@ -16,6 +16,7 @@ import java.util.List;
 public class TermModifyingController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String idTerm = req.getParameter("idModifyTerm");
 
         req.setAttribute("idsOldDisc", req.getParameter("idsOldDisciplines"));
@@ -25,11 +26,13 @@ public class TermModifyingController extends HttpServlet {
         req.setAttribute("term", term);
         req.setAttribute("disc", disciplines);
         req.setAttribute("currentPage", "/WEB-INF/jsp/termModifying.jsp");
+        req.setAttribute("pageName", "Изменение семестра");
         req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String termId = req.getParameter("termId");
         String termName = req.getParameter("termName");
         String duration = req.getParameter("duration");

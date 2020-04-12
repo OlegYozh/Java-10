@@ -18,6 +18,7 @@ public class StudentsListController extends HttpServlet {
         List<Student> students = DBManager.getAllStudents();
         req.setAttribute("studs", students);
         req.setAttribute("currentPage", "/WEB-INF/jsp/studentslist.jsp");
+        req.setAttribute("pageName", "Список студентов");
         req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req, resp);
     }
 

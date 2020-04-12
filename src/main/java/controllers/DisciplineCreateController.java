@@ -16,6 +16,7 @@ public class DisciplineCreateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("currentPage","/WEB-INF/jsp/disciplinecreating.jsp");
+        req.setAttribute("pageName", "Создание дисциплину");
         req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req,resp);
     }
 

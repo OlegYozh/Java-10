@@ -21,6 +21,7 @@ public class DisciplinesListController extends HttpServlet {
         List<Discipline> disciplines = DBManager.getAllActiveDisciplines();
         req.setAttribute("disces",disciplines);
         req.setAttribute("currentPage", "/WEB-INF/jsp/disciplineslist.jsp");
+        req.setAttribute("pageName", "Список дисциплин");
         req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req,resp);
     }
 

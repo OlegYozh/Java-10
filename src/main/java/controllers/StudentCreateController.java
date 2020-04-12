@@ -15,11 +15,13 @@ public class StudentCreateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("currentPage", "/WEB-INF/jsp/studentcreating.jsp");
+        req.setAttribute("pageName", "Создание студента");
         req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
         String group = req.getParameter("group");

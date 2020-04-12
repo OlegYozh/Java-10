@@ -15,14 +15,17 @@ import java.util.List;
 public class TermCreatingController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         List<Discipline> disciplines = DBManager.getAllActiveDisciplines();
         req.setAttribute("disces", disciplines);
         req.setAttribute("currentPage", "/WEB-INF/jsp/termCreating.jsp");
+        req.setAttribute("pageName", "Создание семестра");
         req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String termName = req.getParameter("termName");
         String duration = req.getParameter("duration");
         String id = DBManager.createTerm(termName, duration);

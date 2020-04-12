@@ -38,6 +38,7 @@ public class TermsListController extends HttpServlet {
             req.setAttribute("disciplines", disciplines);
         }
         req.setAttribute("currentPage", "/WEB-INF/jsp/termsList.jsp");
+        req.setAttribute("pageName", "Список семестров");
         req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req, resp);
     }
 

@@ -17,6 +17,7 @@ import java.util.List;
 public class StudentProgressController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String idStud;
         Student student;
         List<Mark> marks;
@@ -47,6 +48,7 @@ public class StudentProgressController extends HttpServlet {
             req.setAttribute("markes", marks);
         }
         req.setAttribute("currentPage", "/WEB-INF/jsp/studentProgress.jsp");
+        req.setAttribute("pageName", "Успеваемость студента");
         req.getRequestDispatcher("./WEB-INF/jsp/template.jsp").forward(req, resp);
     }
 
